@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p> Hello</p>
+     <p> <strong>Gold</strong>{{request.session.gold}}</p>
+    <h2>look for coins</h2>
+    <a href="/farm">Farm: +10-20 gold</a><br>
+    <a href="/cave">Cave: +5-10 gold</a><br>
+    <a href="/house">House: + 2-5 gold</a><br>
+    <a href="/casino">Casino: +/- 0-50 gold</a><br>
+    <a href="/clear">clear</a><br>
+
+    {% csrf_token %}
+    {% for word in request.session.diary%}
+    <p>You {{word.activity}}{{word.gold}} / Time {{word.time}}</p>
+    {% endfor %}
+</body>
+</html>
